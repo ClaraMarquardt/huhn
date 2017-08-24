@@ -12,8 +12,8 @@
 #----------------------------------------------------------------------------#
 
 # CM 
-wd_path="/Users/claramarquardt/Google_Drive/Jobs/zolab/Mulab/other_project/method_new_repo/"
-package_name="ehR"
+wd_path="/Users/claramarquardt/Google_Drive/Jobs/zolab/Mulab/other_project/huhn/"
+package_name="huhn"
 
 #----------------------------------------------------------------------------#
 #                                    END                                     #

@@ -6,7 +6,7 @@
 in a logit model (glm/glmnet/speedglm).}
 \usage{
 feature_logit(model, cluster_var_vector = NA, feat_lim = 200, output_path,
-  add_dt = NULL)
+  add_dt = NULL, mode = "default")
 }
 \arguments{
 \item{model}{}

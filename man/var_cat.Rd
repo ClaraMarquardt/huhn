@@ -4,7 +4,7 @@
 \alias{var_cat}
 \title{Classify a variable in a dt according to a given classification scheme.}
 \usage{
-var_cat(dt, var_name, class_scheme)
+var_cat(dt, var_name, class_scheme, round = FALSE)
 }
 \arguments{
 \item{TBC}{}

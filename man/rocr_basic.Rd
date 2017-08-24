@@ -4,7 +4,8 @@
 \alias{rocr_basic}
 \title{Generate and save a (test and train) ROC curve.}
 \usage{
-rocr_basic(pred_list, outcome_list, model_name, title, path)
+rocr_basic(pred_list, outcome_list, model_name, title, path, point = NULL,
+  label_offset = 0.02)
 }
 \arguments{
 \item{pred_list}{}

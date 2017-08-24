@@ -1,6 +1,6 @@
 #----------------------------------------------------------------------------#
 
-#' Perform a Hochberg correction of p-values to account for multiple hypothesis testing [Hochberg (1988) - Step Up]. 
+#' Perform a Hochberg correction of p-values to account for multiple hypothesis testing [Hochberg (1988) - Step Up].
 #' 
 #' @export
 #' @param p Vector of raw p-values [numeric].

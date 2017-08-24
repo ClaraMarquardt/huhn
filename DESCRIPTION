@@ -1,4 +1,4 @@
-Package: huh
+Package: huhn
 Title: A collection of miscellaneous R functions.
 Version: 0.0.0.9000
 Authors@R: person("Clara", "Marquardt", email = "marquardt.clara@gmail.com", role = c("aut", "cre"))
