@@ -14,8 +14,8 @@
 cd ${wd_path}
 
 R CMD BATCH --no-save "--args ${wd_path} ${package_name}" \
-	ehR/package_management/package_update.R \
-	ehR/package_management/package_update.Rout
+	huhn/package_management/package_update.R \
+	huhn/package_management/package_update.Rout
 
 #----------------------------------------------------------------------------#
 #                                    END                                     #
