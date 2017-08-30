@@ -12,11 +12,12 @@
 #' @return Modified data.table.
 #' @examples
 
- one_hot_encoding <- function (dt, var_list, drop = FALSE) {
+  one_hot_encoding <- function (dt, var_list, drop = FALSE, keep=FALSE) {
 
     contr.onehot = function(n, contrasts, sparse = FALSE) {
         contr.sum(n = n, contrasts = FALSE, sparse = sparse)
     }
+
     current.na.action <- options("na.action")
     current.contrasts <- options("contrasts")
     options(contrasts = c("contr.onehot", "contr.onehot"))
@@ -58,19 +59,23 @@
     na_col   <- grep("_NA$", names(dt_factor), value=T)
     dt_factor[, c(na_col):=NULL]
 
-    dt_factor[,]
     # format
     dt_factor[, `:=`(names(dt_factor), lapply(.SD, function(x) as.integer(x)))]
-    dt_non_factor <- dt[, c(setdiff(names(dt), var_list)), with=F]
-    
+
+    if(keep==FALSE) {
+        dt_non_factor <- dt[, c(setdiff(names(dt), var_list)), with=F]
+    } else {
+        dt_non_factor <- dt
+    }  
+
     # check that row count aligns
     if (nrow(dt_factor) != nrow(dt_non_factor)) 
       print("warning - one hot encoding () - it appears that rows are dropped during the conversion")
 
     dt_temp <- data.table(data.frame(dt_non_factor, dt_factor))
 
-    options(na.action = current.na.action)
-    options(contrasts = current.contrasts)
+    options(na.action = current.na.action$na.action)
+    options(contrasts = current.contrasts$contrast)
 
     # return
     return(dt_temp)
