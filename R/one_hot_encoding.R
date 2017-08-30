@@ -18,11 +18,15 @@
         contr.sum(n = n, contrasts = FALSE, sparse = sparse)
     }
     current.na.action <- options("na.action")
+    current.contrasts <- options("contrasts")
     options(contrasts = c("contr.onehot", "contr.onehot"))
     options(na.action = "na.pass")
 
     dt_factor <- dt[, c(var_list), with=F]
     dt_factor <- lapply(var_list, function(x) {
+        
+        # reformat
+        dt_factor[, c(x):=as.character(get(x))]
         
         # rename 
         dt_factor[, c(x):=lapply(.SD, function(y) paste0("_", gsub("(_*)$", "", y))), 
@@ -66,6 +70,7 @@
     dt_temp <- data.table(data.frame(dt_non_factor, dt_factor))
 
     options(na.action = current.na.action)
+    options(contrasts = current.contrasts)
 
     # return
     return(dt_temp)
