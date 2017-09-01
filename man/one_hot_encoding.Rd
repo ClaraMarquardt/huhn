@@ -4,7 +4,7 @@
 \alias{one_hot_encoding}
 \title{Encode categorical values in data.table.}
 \usage{
-one_hot_encoding(dt, var_list, drop = FALSE)
+one_hot_encoding(dt, var_list, drop = FALSE, keep = FALSE)
 }
 \arguments{
 \item{dt}{data.table containining the data [data.table].}

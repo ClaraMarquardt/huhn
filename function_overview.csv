@@ -16,6 +16,7 @@
 "list_function","List all the functions used in a R script."
 "list_space","Insert element - string - into a list."
 "list_table","Convert list to table which, optionally, is appended to existing table."
+"lm_output","Extract and format the output of a linear regression object."
 "make_function","Generate a function programatically."
 "mclapply_robust","mclapply function useable across Mac/Windows."
 "model_auc","Simple auc calculation."

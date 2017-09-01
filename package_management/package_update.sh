@@ -11,9 +11,9 @@
 #                                    CODE                                    #
 #----------------------------------------------------------------------------#
 
-cd ${wd_path}
+## assume that in correct directory (directory containing the repo)
 
-R CMD BATCH --no-save "--args ${wd_path} ${package_name}" \
+R CMD BATCH --no-save \
 	huhn/package_management/package_update.R \
 	huhn/package_management/package_update.Rout
 
