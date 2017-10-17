@@ -17,6 +17,7 @@
 #' @examples
 
 
+
 feature_logit <- function(model, cluster_var_vector=NA, feat_lim=300, output_path, 
   add_dt=NULL, mode="default") {
 
@@ -179,7 +180,7 @@ feature_logit <- function(model, cluster_var_vector=NA, feat_lim=300, output_pat
     "odds_CI_0.95_min", "odds_CI_0.95_max", "p", "sign")
   var_coeff_name <- c("var_name", "estimate", "std_clust", "odds", 
     "odds_CI_0.9_min_clust", "odds_CI_0.9_max_clust", 
-    "odds_CI_0.95_min", "odds_CI_0.95_max", "p_clust", "sign_clust")
+    "odds_CI_0.95_min_clust", "odds_CI_0.95_max_clust", "p_clust", "sign_clust")
   var_coeff_name <- var_coeff_name[var_coeff %in% names(coeff)]
   var_coeff <- var_coeff[var_coeff %in% names(coeff)]
 
@@ -189,8 +190,8 @@ feature_logit <- function(model, cluster_var_vector=NA, feat_lim=300, output_pat
   if (mode=="min_sign") {
 
       # NO VARIABLES DROPPED
-      coef[, p_sign:=gsub("[0-9\\.]", "", grep("p$|p_clust",names(coeff), value=T))]
-      coef[, c(grep("p$|p_clust",names(coeff), value=T)):=gsub("[^0-9\\.]", "", grep("p$|p_clust",names(coeff), value=T))]
+      coeff[, p_sign:=gsub("[0-9\\.]", "", get(grep("p$|p_clust",names(coeff), value=T)))]
+      coeff[, c(grep("p$|p_clust",names(coeff), value=T)):=as.numeric(gsub("[^0-9\\.]", "", get(grep("p$|p_clust",names(coeff), value=T))))]
     
     if ("odds_CI_0.9_min_clust" %in% names(coeff)) {
 
@@ -264,5 +265,6 @@ feature_logit <- function(model, cluster_var_vector=NA, feat_lim=300, output_pat
 
 
 }
+
 
 #----------------------------------------------------------------------------#
