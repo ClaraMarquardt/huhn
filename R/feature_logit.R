@@ -17,7 +17,7 @@
 #' @examples
 
 
-feature_logit <- function(model, cluster_var_vector=NA, feat_lim=200, output_path, 
+feature_logit <- function(model, cluster_var_vector=NA, feat_lim=300, output_path, 
   add_dt=NULL, mode="default") {
 
     # stats
@@ -188,9 +188,10 @@ feature_logit <- function(model, cluster_var_vector=NA, feat_lim=200, output_pat
 
   if (mode=="min_sign") {
 
-    drop_var <- c("estimate", grep("std", names(coeff), value=T))
-    coeff[, c(drop_var):=NULL]
-
+      # NO VARIABLES DROPPED
+      coef[, p_sign:=gsub("[0-9\\.]", "", grep("p$|p_clust",names(coeff), value=T))]
+      coef[, c(grep("p$|p_clust",names(coeff), value=T)):=gsub("[^0-9\\.]", "", grep("p$|p_clust",names(coeff), value=T))]
+    
     if ("odds_CI_0.9_min_clust" %in% names(coeff)) {
 
       coeff[, c("odds_CI_0.9_min", "odds_CI_0.9_max", "odds_CI_0.95_min", "odds_CI_0.95_max"):=NULL]
