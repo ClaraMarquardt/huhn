@@ -21,7 +21,7 @@ var_cat <- function(dt, var_name, class_scheme, round=FALSE) {
 
     dt[get("var_temp")<class_scheme_var[[1]][1], c("var_temp"):=class_scheme_var[[1]][1]]
     dt[get("var_temp")>class_scheme_var[[1]][length(class_scheme_var[[1]])], 
-      c("var_temp"):=c3lass_scheme_var[[1]][length(class_scheme_var[[1]])]]
+      c("var_temp"):=class_scheme_var[[1]][length(class_scheme_var[[1]])]]
   }
 
   ## apply
