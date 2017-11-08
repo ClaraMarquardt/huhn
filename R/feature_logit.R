@@ -178,7 +178,7 @@ feature_logit <- function(model, cluster_var_vector=NA, feat_lim=300, output_pat
 
   coeff[, estimate:=round(estimate, digits=5)]
 
-  var_coeff <- c("var_name", 'estimate', "std", "odds","odds_std" "odds_CI_0.9_min", "odds_CI_0.9_max", 
+  var_coeff <- c("var_name", 'estimate', "std", "odds","odds_std", "odds_CI_0.9_min", "odds_CI_0.9_max", 
     "odds_CI_0.95_min", "odds_CI_0.95_max", "p", "sign")
   var_coeff_name <- c("var_name", "estimate", "std_clust", "odds",  "odds_std_clust",
     "odds_CI_0.9_min_clust", "odds_CI_0.9_max_clust", 
