@@ -164,9 +164,11 @@ feature_logit <- function(model, cluster_var_vector=NA, feat_lim=300, output_pat
     coeff[, odds_CI_0.9_max:=exp(CI_0.9_max)]
     coeff[, odds_CI_0.95_min:=exp(CI_0.95_min)]
     coeff[, odds_CI_0.95_max:=exp(CI_0.95_max)]
+    coeff[, odds_std:=odds*std]
 
     coeff[, p:=round(p, digits=5)]
     coeff[, std:=round(std, digits=5)]
+    coeff[, odds_std:=round(odds_std, digits=5)]
     coeff[, odds_CI_0.9_min:=round(odds_CI_0.9_min, digits=5)]
     coeff[, odds_CI_0.9_max:=round(odds_CI_0.9_max, digits=5)]
     coeff[, odds_CI_0.95_min:=round(odds_CI_0.95_min, digits=5)]
@@ -176,9 +178,9 @@ feature_logit <- function(model, cluster_var_vector=NA, feat_lim=300, output_pat
 
   coeff[, estimate:=round(estimate, digits=5)]
 
-  var_coeff <- c("var_name", 'estimate', "std", "odds", "odds_CI_0.9_min", "odds_CI_0.9_max", 
+  var_coeff <- c("var_name", 'estimate', "std", "odds","odds_std" "odds_CI_0.9_min", "odds_CI_0.9_max", 
     "odds_CI_0.95_min", "odds_CI_0.95_max", "p", "sign")
-  var_coeff_name <- c("var_name", "estimate", "std_clust", "odds", 
+  var_coeff_name <- c("var_name", "estimate", "std_clust", "odds",  "odds_std_clust",
     "odds_CI_0.9_min_clust", "odds_CI_0.9_max_clust", 
     "odds_CI_0.95_min_clust", "odds_CI_0.95_max_clust", "p_clust", "sign_clust")
   var_coeff_name <- var_coeff_name[var_coeff %in% names(coeff)]
