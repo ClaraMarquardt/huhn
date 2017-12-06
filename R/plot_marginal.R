@@ -7,7 +7,6 @@
 #' @export
 #' @import data.table
 #' @import ggplot2
-#' @import plotflow
 #' @import grid
 #' @import gridExtra
 #' @import scales 

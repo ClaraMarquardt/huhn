@@ -4,7 +4,8 @@
 \alias{lm_output}
 \title{Extract and format the output of a linear regression object.}
 \usage{
-lm_output(lm, var_index = 2, res_df = lm$df.residual, digit = 3)
+lm_output(model, var_index = 2, res_df = model$df.residual, digit = 3,
+  mode = NULL, cluster = NULL)
 }
 \value{
 TBA

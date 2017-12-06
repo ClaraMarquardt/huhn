@@ -5,7 +5,7 @@
 \title{Generate, format and save a tabulation of the most important predictors
 in a logit model (glm/glmnet/speedglm).}
 \usage{
-feature_logit(model, cluster_var_vector = NA, feat_lim = 200, output_path,
+feature_logit(model, cluster_var_vector = NA, feat_lim = 300, output_path,
   add_dt = NULL, mode = "default")
 }
 \arguments{
